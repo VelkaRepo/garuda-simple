@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garuda Store - Your Tickets</title>
+    <link rel="stylesheet" href="tickets.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="logout-btn">Logout</button>
+    </header>
+
+    <!-- Tickets Confirmation Section -->
+    <section class="tickets-confirmation">
+        <h1>Your Ticket is Confirmed!</h1>
+        <p id="ticket-info">You have successfully purchased a <span id="ticket-type"></span> ticket.</p>
+        <p>Thank you for your purchase! Please check your email for your e-ticket and further instructions.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Garuda Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Get ticket type from URL
+        const params = new URLSearchParams(window.location.search);
+        const ticketType = params.get('ticketType');
+
+        // Display the ticket type in the confirmation message
+        document.getElementById('ticket-type').innerText = ticketType ? ticketType : 'Standard';
+
+        // Logout button functionality
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            window.location.href = 'signin.html'; // Redirect to sign-in page
+        });
+    </script>
+</body>
+</html>
